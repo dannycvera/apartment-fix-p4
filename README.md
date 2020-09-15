@@ -26,7 +26,7 @@ _**Apartment Fix** is a web app to document apartment issues, such as leaking pl
 
 ## MVP
 
-_The **Apartment Fix** MVP will allow for the creation of an apartment issue with an image and description. Then full CRUD functionality will be implimented thru the addition, editing, and deletion of comments to the specific issue. Users can also be created with encrypted passwords, who will also be allowed to leave comments on the specific apartment issue._
+_The **Apartment Fix** MVP will allow for the creation of an apartment issues with an image and description. Then full CRUD functionality will be implimented thru the addition, editing, and deletion of comments to the specific issue. Users can also be created with encrypted passwords, who will also be allowed to leave comments on the specific apartment issue._
 
 <br>
 
