@@ -20,14 +20,14 @@
 
 ## Overview
 
-_**Apartment Fix** is a web app to document apartment issues, such as leaking plumbing, broken sheetrock, etc. The building manager will inturn login and leave comments, such as when a contractor will arrive. The contractor can also login and take an image of the resolution. If the tenant approves the work, they can mark the issue as resolved.
+_**Apartment Fix** is a web app to document apartment issues, such as leaking plumbing, broken sheetrock, etc. The building manager will inturn login and leave comments, such as when a contractor will arrive. The contractor can also login and take an image of the resolution. If the tenant approves the work, they can mark the issue as resolved._
 
 
 <br>
 
 ## MVP
 
-_The **Apartment Fix** MVP will allow for the creation of an apartment issue with an image and description. Then full CRUD functionality will be implimented thru the addition, editing, and deletion of comments to the specific issue. Users can also be created with encrypted passwords, who will also be allowed to leave comments on the specific apartment issue. _
+_The **Apartment Fix** MVP will allow for the creation of an apartment issue with an image and description. Then full CRUD functionality will be implimented thru the addition, editing, and deletion of comments to the specific issue. Users can also be created with encrypted passwords, who will also be allowed to leave comments on the specific apartment issue._
 
 <br>
 
