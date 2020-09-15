@@ -51,9 +51,7 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issue wit
 |   React Router   | _allows single page apps to behave as a multi page sites_ |
 |   React Spring   |        for smooth transition of images     |
 |      Axios       | _to make JSON request to the database._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Ruby on Rails   | _Lorem ipsum dolor sit amet, consectetur._ |
+|  Ruby on Rails   | _handle SQL queries and routes them to API endpoints_ |
 
 <br>
 
