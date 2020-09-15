@@ -1,8 +1,4 @@
-# APARTMENT FIX <!-- omit in toc -->
-
-> The Project Planning section **should be completed** for your project pitch with instructors.
->
-> To ensure correct Markdown, copy and paste the raw template code into your project repo README file. Remove ALL template instructions and replace with your project details.
+# APARTMENT FIX 
 
 - [Overview](#overview)
 - [MVP](#mvp)
@@ -24,16 +20,14 @@
 
 ## Overview
 
-_**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_**Apartment Fix** is a web app to document apartment issues, such as leaking plumbing, broken sheetrock, etc. The building manager will inturn login and leave comments, such as when a contractor will arrive. The contractor can also login and take an image of the resolution. If the tenant approves the work, they can mark the issue as resolved.
 
 
 <br>
 
 ## MVP
 
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_The **Apartment Fix** MVP will allow for the creation of an apartment issue with an image and description. Then full CRUD functionality will be implimented thru the addition, editing, and deletion of comments to the specific issue. Users can also be created with encrypted passwords, who will also be allowed to leave comments on the specific apartment issue. _
 
 <br>
 
@@ -53,11 +47,13 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | _Javascript library for an interactive UI_ |
+|   React Router   | _allows single page apps to behave as a multi page sites_ |
+|   React Spring   |        for smooth transition of images     |
+|      Axios       | _to make JSON request to the database._ |
 |     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
 |  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|  Ruby on Rails   | _Lorem ipsum dolor sit amet, consectetur._ |
 
 <br>
 
