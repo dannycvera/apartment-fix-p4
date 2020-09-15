@@ -121,7 +121,10 @@ src
 | PMVP - react-spring for transition effects | L | 3hrs| 0hrs | 0hrs |
 | PMVP - full screen image display | L | 3hrs| 0hrs | 0hrs |
 | PMVP - image upload | L | 3hrs| 0hrs | 0hrs |
-| Total | H | 63hrs| 0hrs | 0hrs |
+| PMVP - Buildings/Apartments tables | L | 16hrs| 0hrs | 0hrs |
+| PMVP - Impliment user permissions | L | 8hrs| 0hrs | 0hrs |
+| PMVP - Landlord Screen| L | 8hrs| 0hrs | 0hrs |
+| Total | H | 95hrs| 0hrs | 0hrs |
 
 
 <br>
@@ -139,9 +142,11 @@ src
 ## Post-MVP
 
 - Impliment React Spring for transition effects of the images.
-- add Buildings, apartments tables
-- impliment user type/permissions table
-- add a landlord screen of issues for each building
+- Full screen image viewing
+- Image upload directly from cellphones
+- Add Buildings, apartments tables
+- Impliment user type/permissions table
+- Add a landlord screen of issues for each building
 
 ***
 
