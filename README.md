@@ -59,7 +59,7 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issues wi
 [Desktop-Mobile](https://whimsical.com/XVWx7gWcfwSkvLXDUzJ4Y9)
 
 #### Component Tree
-
+``` 
 App
 |__ MainContainer
      |__ Home
@@ -75,6 +75,7 @@ App
             |__ Nav
         |__ Footer
         
+```
 #### Component Hierarchy
 
 ``` structure
