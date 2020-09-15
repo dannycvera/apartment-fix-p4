@@ -33,17 +33,15 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issue wit
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _User registration and login,_
+- _User creation of apartment issues_
+- _include images with each issue_
+- _User post comments on a specific issue_
+- _Full CRUD on comments_
 
 <br>
 
 ### Libraries and Dependencies
-
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
@@ -59,30 +57,38 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issue wit
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
-
 [Desktop-Mobile](https://whimsical.com/XVWx7gWcfwSkvLXDUzJ4Y9)
 
 
-#### Component Tree
-
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
 
 #### Component Hierarchy
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
 
 ``` structure
 
 src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
 |__ components/
       |__ Header.jsx
+      |__ Nav.jsx
+      |__ Footer.jsx
+      |__ IssueCard.jsx
+      |__ Comments.jsx
+      |__ CommentCard.jsx
+|__ containers/
+      |__ MainContainer.jsx
+|__ Layout/
+      |__ Layout.jsx
+|__ screens/
+      |__ Login.jsx
+      |__ Register.jsx
+      |__ Home.jsx
+      |__ Issue.jsx
+      |__ NewIssue.jsx
 |__ services/
+      |__ apiConfig.js
+      |__ auth.js
+      |__ issues.js
+      |__ comments.js
+
 
 ```
 
@@ -94,8 +100,10 @@ src
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
 |  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
+| Issues Gallery |  class   |   y   |   n   | _The gallery will render the issue images in flexbox._      |
+| Issue Card | functional |   n   |   y   | _The cards will render the issue info via props._                 |
+| Comments Gallery |  class   |   y   |   n   | _The gallery will render the comments via cars in flexbox._      |
+| Comment Card | functional |   n   |   y   | _The cards will render the comment info via props._                 |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
 #### Time Estimates
