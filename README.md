@@ -58,8 +58,23 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issues wi
 
 [Desktop-Mobile](https://whimsical.com/XVWx7gWcfwSkvLXDUzJ4Y9)
 
+#### Component Tree
 
-
+App
+|__ MainContainer
+     |__ Home
+     |__ Issue
+        |__ IssueCard
+        |__ Comments
+            |__ CommentCard
+        |__ CommentEdit
+     |__ Login
+     |__ Register
+     |__ Layout
+        |__ Header
+            |__ Nav
+        |__ Footer
+        
 #### Component Hierarchy
 
 ``` structure
