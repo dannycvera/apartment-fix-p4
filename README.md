@@ -127,8 +127,10 @@ src
 
 | Task  | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| rails backend | H | 16hrs| 0hrs | 0hrs |
-| login | H | 4hrs| 0hrs | 0hrs |
+| rails auth | H | 4hrs| 0hrs | 0hrs |
+| rails issue model | H | 4hrs| 0hrs | 0hrs |
+| rails comments table | H | 4hrs| 0hrs | 0hrs |
+| react login | H | 4hrs| 0hrs | 0hrs |
 | JSX, Modules | H | 4hrs| 0hrs | 0hrs |
 | add comments component | H | 8hrs| 0hrs | 0hrs |
 | add issue module | H | 8hrs| 0hrs | 0hrs |
@@ -140,7 +142,7 @@ src
 | PMVP - Buildings/Apartments tables | L | 16hrs| 0hrs | 0hrs |
 | PMVP - Impliment user permissions | L | 8hrs| 0hrs | 0hrs |
 | PMVP - Landlord Screen| L | 8hrs| 0hrs | 0hrs |
-| Total | H | 95hrs| 0hrs | 0hrs |
+| Total | H | 91hrs| 0hrs | 0hrs |
 
 
 <br>
