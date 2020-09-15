@@ -67,9 +67,7 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-[Desktop-Mobile](https://drive.google.com/file/d/1B9r9Xa8nE6EDtrtkVGpSP4jLVgAJDX5n/view?usp=sharing)
-
-- Desktop Landing
+[Desktop-Mobile](https://whimsical.com/XVWx7gWcfwSkvLXDUzJ4Y9)
 
 
 #### Component Tree
@@ -124,7 +122,7 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
+[Database-model](https://drive.google.com/file/d/1B9r9Xa8nE6EDtrtkVGpSP4jLVgAJDX5n/view?usp=sharing)
 
 <br>
 
