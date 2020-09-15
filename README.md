@@ -6,7 +6,6 @@
   - [Libraries and Dependencies](#libraries-and-dependencies)
   - [Client (Front End)](#client-front-end)
     - [Wireframes](#wireframes)
-    - [Component Tree](#component-tree)
     - [Component Hierarchy](#component-hierarchy)
     - [Component Breakdown](#component-breakdown)
     - [Time Estimates](#time-estimates)
@@ -73,6 +72,7 @@ src
       |__ IssueCard.jsx
       |__ Comments.jsx
       |__ CommentCard.jsx
+      |__ CommentEdit.jsx
 |__ containers/
       |__ MainContainer.jsx
 |__ Layout/
@@ -94,29 +94,35 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
 |  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
 | Issues Gallery |  class   |   y   |   n   | _The gallery will render the issue images in flexbox._      |
 | Issue Card | functional |   n   |   y   | _The cards will render the issue info via props._                 |
+| Issue Create | functional |   n   |   y   | _The component will provide fields to create an issue via props._    |
 | Comments Gallery |  class   |   y   |   n   | _The gallery will render the comments via cars in flexbox._      |
 | Comment Card | functional |   n   |   y   | _The cards will render the comment info via props._                 |
+| Comment Edit | functional |   n   |   y   | _The component will provide fields to edit a comment via props._    |
+| Registration | functional |   n   |   y   | _The component will provide fields to create a user via props._    |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
+| Task  | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| rails backend | H | 16hrs| 0hrs | 0hrs |
+| login | H | 4hrs| 0hrs | 0hrs |
+| JSX, Modules | H | 4hrs| 0hrs | 0hrs |
+| add comments component | H | 8hrs| 0hrs | 0hrs |
+| add issue module | H | 8hrs| 0hrs | 0hrs |
+| Create CRUD Actions |    H     |     8 hrs      |     0hrs     |     TBD     |
+| CSS| H | 8hrs|0hrs | 0hrs |
+| PMVP - react-spring for transition effects | L | 3hrs| 0hrs | 0hrs |
+| PMVP - full screen image display | L | 3hrs| 0hrs | 0hrs |
+| PMVP - image upload | L | 3hrs| 0hrs | 0hrs |
+| Total | H | 63hrs| 0hrs | 0hrs |
 
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -132,7 +138,10 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+- Impliment React Spring for transition effects of the images.
+- add Buildings, apartments tables
+- impliment user type/permissions table
+- add a landlord screen of issues for each building
 
 ***
 
