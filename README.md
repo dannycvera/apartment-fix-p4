@@ -56,7 +56,7 @@ _The **Apartment Fix** MVP will allow for the creation of an apartment issues wi
 
 #### Wireframes
 
-[Desktop-Mobile](https://drive.google.com/file/d/1ZdcbIf7-k3tz-gwvWvEZcAJZMBIZketY/view?usp=sharing)
+[Desktop-Mobile](https://drive.google.com/file/d/1GsQ6xnSWLgTZS-rfiQtxpX4N5vZpY9OO/view?usp=sharing)
 
 #### Component Tree
 ``` 
