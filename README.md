@@ -116,7 +116,7 @@ src
 | JSX, Modules | H | 4hrs| 0hrs | 0hrs |
 | add comments component | H | 8hrs| 0hrs | 0hrs |
 | add issue module | H | 8hrs| 0hrs | 0hrs |
-| Create CRUD Actions |    H     |     8 hrs      |     0hrs     |     TBD     |
+| Create CRUD Actions |    H     |     8hrs      |     0hrs     |     TBD     |
 | CSS| H | 8hrs|0hrs | 0hrs |
 | PMVP - react-spring for transition effects | L | 3hrs| 0hrs | 0hrs |
 | PMVP - full screen image display | L | 3hrs| 0hrs | 0hrs |
