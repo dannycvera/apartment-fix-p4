@@ -19,20 +19,42 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      @token = encode({id: @user.id})
+      render json: { user: @user.attributes.except('password_digest'), token: @token}, status: :created
+      # , location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /users/1
+  # def update
+  #   if @user.update(user_params)
+  #     render json: @user
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
+  # PATCH/PUT /users/1
   def update
+    # @user = User.find(params[:id])
     if @user.update(user_params)
-      render json: @user
+      # @token = encode({id: @user.id})
+      # puts "current user #{@current_user.attributes.except('password_digest')}"
+      render json: @current_user.attributes.except('password_digest'), status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
     end
   end
+  # @user == @currentUser && 
+  # def update
+  #   if @user.update(params.require(:user).permit(:username, :first_name, :last_name, :address, :image_url, :user_type, :email, :phone))
+  #     @token = encode({id: @user.id})
+  #     render json: { user: @user.attributes.except('password_digest'), token: @token}, status: :created
+  #   else
+  #     render json: @user.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /users/1
   def destroy
@@ -47,6 +69,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password, :first_name, :last_name, :image_url, :user_type, :email, :phone)
+      params.require(:user).permit(:username, :password, :first_name, :last_name, :address, :image_url, :user_type, :email, :phone)
     end
 end
