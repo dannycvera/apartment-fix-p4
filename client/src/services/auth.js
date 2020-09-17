@@ -32,7 +32,7 @@ export const userEdit = async (userEditData, id) => {
       user: userEditData,
     });
     //localStorage.setItem("apartFixAuthToken", resp.data.token);
-    console.log(resp.data);
+    // console.log(resp.data);
     api.defaults.headers.common.authorization = `Bearer ${token}`;
     return resp.data;
   } catch (error) {
