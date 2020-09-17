@@ -1,27 +1,57 @@
 import api from "./api-config";
 
 export const loginUser = async (loginData) => {
-  const resp = await api.post("/auth/login", { authentication: loginData });
-  localStorage.setItem("authToken", resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
-  return resp.data.user;
+  try {
+    const resp = await api.post("/auth/login", { authentication: loginData });
+    localStorage.setItem("apartFixAuthToken", resp.data.token);
+    api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+    console.log(resp);
+    return resp.data.user;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post("/users/", { user: registerData });
-  localStorage.setItem("authToken", resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
-  return resp.data.user;
+  try {
+    const resp = await api.post("/users/", { user: registerData });
+    localStorage.setItem("apartFixAuthToken", resp.data.token);
+    api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+    console.log(resp.data.user);
+    return resp.data.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const userEdit = async (userEditData, id) => {
+  try {
+    const token = localStorage.getItem("apartFixAuthToken");
+
+    const resp = await api.put(`/users/${id}`, {
+      user: userEditData,
+    });
+    //localStorage.setItem("apartFixAuthToken", resp.data.token);
+    console.log(resp.data);
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export const verifyUser = async () => {
-  const token = localStorage.getItem("authToken");
-  if (token) {
-    api.defaults.headers.common.authorization = `Bearer ${token}`;
-    const resp = await api.get("/auth/verify");
-    return resp.data;
+  try {
+    const token = localStorage.getItem("apartFixAuthToken");
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
+      const resp = await api.get("/auth/verify");
+      return resp.data;
+    }
+    return null;
+  } catch (error) {
+    throw error;
   }
-  return null;
 };
 
 export const removeToken = () => {
