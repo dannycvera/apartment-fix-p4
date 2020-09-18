@@ -1,14 +1,15 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :update, :destroy]
 
-  # GET /issues
+  # GET /users/1/issues
   def index
-    @user = User.find(params[:user_id])
-    @issues = Issue.where(user_id: @user.id)
+    @user = User.find(params[:id])
+    @issues = Issue.where(id: @user.id)
 
     render json: @issues, include: :user, status: :ok
   end
 
+  # GET /issues
   def index_all
     @index = Index.all
     render json: @index, status: :ok
@@ -49,9 +50,7 @@ class IssuesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
-      
       @issue = Issue.find(params[:id])
-      
     end
 
     # Only allow a trusted parameter "white list" through.
