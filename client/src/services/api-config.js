@@ -3,7 +3,7 @@ import axios from "axios";
 let apiUrl;
 
 const apiUrls = {
-  production: "http://localhost:3000",
+  production: "https://apartment-fix.herokuapp.com/",
   development: "http://localhost:3000",
 };
 if (window.location.hostname === "localhost") {
