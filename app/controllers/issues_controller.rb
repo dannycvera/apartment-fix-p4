@@ -9,6 +9,7 @@ class IssuesController < ApplicationController
     render json: @issues, include: :user, status: :ok
   end
 
+  
   # GET /issues
   def index_all
     @issues = Issue.all
