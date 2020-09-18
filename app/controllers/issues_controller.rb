@@ -9,6 +9,11 @@ class IssuesController < ApplicationController
     render json: @issues, include: :user, status: :ok
   end
 
+  def index_all
+    @index = Index.all
+    render json: @index, status: :ok
+  end
+
   # GET /issues/1
   def show
     @user = User.find(params[:user_id])

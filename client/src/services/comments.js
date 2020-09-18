@@ -1,9 +1,9 @@
 import api from "./api-config";
 
-export const getComments = async () => {
+export const getComments = async (userId, issueId) => {
   try {
-    const response = await api.get("/comments");
-    return response.data;
+    const resp = await api.get(`/users/${userId}/issues/${issueId}/comments`);
+    return resp.data;
   } catch (error) {
     throw error;
   }
@@ -11,10 +11,10 @@ export const getComments = async () => {
 
 export const getComment = async (userId, issueId, commentId) => {
   try {
-    const response = await api.get(
+    const resp = await api.get(
       `/users/${userId}/issues/${issueId}/comments/${commentId}`
     );
-    return response.data;
+    return resp.data;
   } catch (error) {
     throw error;
   }
