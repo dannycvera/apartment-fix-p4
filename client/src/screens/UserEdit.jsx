@@ -49,16 +49,16 @@ function UserEdit(props) {
               />
             </label>
             <br />
-            {/* <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
-          </label>
-          <br /> */}
+            <label>
+              Password:
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
             <label>
               First Name:
               <input
