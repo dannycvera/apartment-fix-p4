@@ -1,4 +1,4 @@
-import api from "./apiConfig";
+import api from "./api-config";
 
 export const getAllIssues = async () => {
   try {

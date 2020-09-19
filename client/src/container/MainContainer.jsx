@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
-import { getAllIssues, getIssues } from "../services/isses";
+import { getAllIssues, getIssues } from "../services/issues";
 
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
@@ -10,10 +10,11 @@ function MainContainer(props) {
   useEffect(() => {
     const fetchIssues = async () => {
       const issuesArray = await getAllIssues();
+      console.log(issuesArray);
       setIssues(issuesArray);
     };
     fetchIssues();
-  });
+  }, []);
   return <div></div>;
 }
 

@@ -12,8 +12,8 @@ class IssuesController < ApplicationController
   # GET /issues
   def index_all
     @issues = Issue.all
-    @user = User.find(@issue.user_id)
-    render json: @issues, include: :user, status: :ok
+    # @user = User.find(@issues.user_id)
+    render json: @issues, status: :ok
   end
 
   # GET /issues/1
