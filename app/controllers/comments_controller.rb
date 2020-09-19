@@ -3,9 +3,9 @@ class CommentsController < ApplicationController
 
   # GET /comments
   def index
-    @user = User.find(params[:user_id])
     @issue = Issue.find(params[:issue_id])
     @comments = Comment.where(issue_id: @issue.id)
+    @user = User.find(@comments.user_id)
 
     render json: @comments, include: [issue: {include: :user}], status: :ok
   end
@@ -21,9 +21,10 @@ class CommentsController < ApplicationController
   # POST /comments
   def create
     @comment = Comment.new(comment_params)
-
+    @issue = Issue.find(@comments.issue_id)
+    @user = User.find(@comments.user_id)
     if @comment.save
-      render json: @comment, status: :created, location: @comment
+      render json: @comment, include: [issue: {include: :user}], status: :created, location: @comment
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -32,7 +33,9 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      render json: @comment
+      @issue = Issue.find(@comments.issue_id)
+      @user = User.find(@comments.user_id)
+      render json: @comment, include: [issue: {include: :user}], status: :ok
     else
       render json: @comment.errors, status: :unprocessable_entity
     end

@@ -23,7 +23,6 @@ function App() {
     try {
       const handleVerify = async () => {
         const userData = await verifyUser();
-        console.log(userData);
         setCurrentUser(userData);
         //history.push("/");
       };
@@ -70,9 +69,8 @@ function App() {
         <Route path="/useredit">
           <UserEdit currentUser={currentUser} userEditSubmit={userEditSubmit} />
         </Route>
-
         <Route path="/">
-          {/* <MainContainer currentUser={currentUser} /> */}
+          <MainContainer currentUser={currentUser} />
         </Route>
       </Switch>
     </Layout>
