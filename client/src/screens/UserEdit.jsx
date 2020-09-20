@@ -49,7 +49,7 @@ function UserEdit(props) {
               />
             </label>
             <br />
-            <label>
+            {/* <label>
               Password:
               <input
                 type="password"
@@ -58,7 +58,7 @@ function UserEdit(props) {
                 onChange={handleChange}
               />
             </label>
-            <br />
+            <br /> */}
             <label>
               First Name:
               <input

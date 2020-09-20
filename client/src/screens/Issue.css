@@ -1,0 +1,9 @@
+.issue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.issue-img {
+  width: 400px;
+  margin: 20px;
+}

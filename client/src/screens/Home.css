@@ -1,0 +1,11 @@
+.home-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-img {
+  width: 400px;
+  margin: 20px;
+}

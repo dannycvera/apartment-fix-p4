@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       # @token = encode({id: @user.id})
       # puts "current user #{@current_user.attributes.except('password_digest')}"
-      render json: @current_user.attributes.except('password_digest'), status: :ok
+      render json: @user.attributes.except('password_digest'), status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
     end
