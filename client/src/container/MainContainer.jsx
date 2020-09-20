@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import { getAllIssues, getIssues } from "../services/issues";
 import Home from "../screens/Home";
+import Issue from "../screens/Issue";
+import Comments from "../screens/Comments";
 
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
@@ -17,7 +19,7 @@ function MainContainer(props) {
       } else {
         issuesArray = await getAllIssues();
       }
-      console.log("issuesarray", issuesArray);
+      // console.log("issuesarray", issuesArray);
       setIssues(issuesArray);
     };
 
@@ -26,7 +28,11 @@ function MainContainer(props) {
 
   return (
     <Switch>
-      <Route path="/">
+      <Route path="/issue/:id">
+        <Issue currentUser={currentUser} />
+        <Comments currentUser={currentUser} />
+      </Route>
+      <Route exact path="/">
         <Home issues={issues} />
       </Route>
     </Switch>

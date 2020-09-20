@@ -1,30 +1,34 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
-  # GET /comments
+  # GET /issues/:id/comments
   def index
-    @issue = Issue.find(params[:issue_id])
-    @comments = Comment.where(issue_id: @issue.id)
-    @user = User.find(@comments.user_id)
+    # @issue = Issue.find(params[:id])
+    @comments = Comment.where(issue_id: params[:id])
+    # @user = User.find(id: @comments.user_id)
 
-    render json: @comments, include: [issue: {include: :user}], status: :ok
+    # render json: @comments, include: [issue: {include: :user}], status: :ok
+    # render json: @comments, include: :user, status: :ok
+    render json: @comments, include: [:user, :issue], status: :ok
+
   end
 
   # GET /comments/1
   def show
-    @user = User.find(params[:user_id])
-    @issue = Issue.find(params[:issue_id])
+    # @user = User.find(params[:user_id])
+    # @issue = Issue.find(params[:issue_id])
     # @comment = Comment.find(params[:id])
-    render json: @comment, include: [issue: {include: :user}], status: :ok
+    render json: @comments, include: :user, status: :ok
   end
-
-  # POST /comments
+  # include: [issue: {include: :user}],
+  # POST /issues/:id/comments
   def create
     @comment = Comment.new(comment_params)
-    @issue = Issue.find(@comments.issue_id)
-    @user = User.find(@comments.user_id)
+    @issue = Issue.find(@comment.issue_id)
+    @user = User.find(@comment.user_id)
     if @comment.save
-      render json: @comment, include: [issue: {include: :user}], status: :created, location: @comment
+      render json: @comments, include: [:user, :issue], status: :ok
+      # render json: @comment, include: [issue: {include: :user}], status: :created, location: @comment
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -33,8 +37,8 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      @issue = Issue.find(@comments.issue_id)
-      @user = User.find(@comments.user_id)
+      @issue = Issue.find(@comment.issue_id)
+      @user = User.find(@comment.user_id)
       render json: @comment, include: [issue: {include: :user}], status: :ok
     else
       render json: @comment.errors, status: :unprocessable_entity

@@ -6,14 +6,15 @@ class IssuesController < ApplicationController
     @user = User.find(params[:id])
     @issues = Issue.where(user_id: @user.id)
     render json: @issues, include: :user, status: :ok
-  end
+  end 
 
 
   # GET /issues
   def index_all
-    @issues = Issue.all
+    @issues = Issue.includes(:user)
+
     # @user = User.find(@issues.user_id)
-    render json: @issues, status: :ok
+    render json: @issues, include: :user, status: :ok
   end
 
   # GET /issues/1

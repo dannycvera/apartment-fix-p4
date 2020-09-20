@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 function Home(props) {
   const { issues } = props;
@@ -10,23 +11,27 @@ function Home(props) {
   const issueImages = issues.map((issue) => {
     if (issue.image_url.slice(-3) === "mp4") {
       return (
-        <video
-          className="home-img"
-          key={issue.id}
-          controls
-          onError={defaultSrc}
-        >
-          <source src={issue.image_url} type="video/mp4" />
-        </video>
+        <Link to={`/issue/${issue.id}`} key={issue.id}>
+          <video
+            className="home-img"
+            key={issue.id}
+            controls
+            onError={defaultSrc}
+          >
+            <source src={issue.image_url} type="video/mp4" />
+          </video>
+        </Link>
       );
     } else {
       return (
-        <img
-          className="home-img"
-          key={issue.id}
-          src={issue.image_url}
-          onError={defaultSrc}
-        />
+        <Link to={`/issue/${issue.id}`} key={issue.id}>
+          <img
+            className="home-img"
+            key={issue.id}
+            src={issue.image_url}
+            onError={defaultSrc}
+          />
+        </Link>
       );
     }
   });
