@@ -156,19 +156,28 @@ function Comments(props) {
       {commentCards}{" "}
       <div className={`modal-parent ${modalVis}`}>
         <div className={`modal ${modalVis}`}>
-          {formEdit.image_url.slice(-3) === "mp4" ? (
-            <video className="modal-img" controls onError={defaultSrc}>
-              <source src={props.image} type="video/mp4" />
-            </video>
-          ) : (
-            formEdit.image_url !== "" && (
-              <img
-                className="modal-img"
-                src={formEdit.image_url}
-                alt="adding another view of the issue"
-                onError={defaultSrc}
-              />
+          {loading === false ? (
+            formEdit.image_url.slice(-3) === "mp4" ? (
+              <video className="modal-img" controls onError={defaultSrc}>
+                <source src={props.image} type="video/mp4" />
+              </video>
+            ) : (
+              formEdit.image_url !== "" && (
+                <img
+                  className="modal-img"
+                  src={formEdit.image_url}
+                  alt="adding another view of the issue"
+                  onError={defaultSrc}
+                />
+              )
             )
+          ) : (
+            <img
+              className="modal-img"
+              src={require("../img/loading.svg")}
+              alt="adding another view of the issue"
+              onError={defaultSrc}
+            />
           )}
           <form className="modal-form">
             <label>
@@ -196,13 +205,13 @@ function Comments(props) {
                 name="file"
                 accepts=".mp4,.jpg, .jpeg, .png, .gif"
                 placeholder="upload an image"
-                value={imageData}
                 onChange={(e) => {
                   const reader = new FileReader();
                   reader.onload = (e) => {
                     setImageData(e.target.result);
                   };
                   setImageDataType(e.target.files[0].type);
+
                   reader.readAsDataURL(e.target.files[0]);
                 }}
               ></input>
