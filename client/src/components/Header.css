@@ -3,3 +3,7 @@ header {
   justify-content: space-evenly;
   border: 1px solid black;
 }
+
+.header-logo {
+  color: #bb3200;
+}

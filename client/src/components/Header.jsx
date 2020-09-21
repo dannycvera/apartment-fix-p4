@@ -7,14 +7,16 @@ function Header(props) {
   return (
     <header>
       <Link to="/">
-        <h1>Apartment Fix</h1>
+        <h1 className="header-logo">Apartment Fix</h1>
       </Link>
       {/* only shows the newissue link if a user is logged in */}
-      {/* {currentUser && (
+      {currentUser && (
         <>
-          <Link to="/newissue">newissue</Link>
+          <Link to="/newissue">
+            <h3>(new issue)</h3>
+          </Link>
         </>
-      )} */}
+      )}
 
       {/* checks if the user is logged in to determine whether which link is displayed */}
       {currentUser ? (

@@ -19,6 +19,6 @@ broken_pipe = Issue.create!(title: "Broken Pipe", description: "spraying water e
 leaking_pips = Issue.create!(title: "Leaking Faucet", description: "dripping water all day", location: "bathroom", image_url: "https://res.cloudinary.com/dgxe7m9em/video/upload/v1600522925/apartmentfix/Leaky_Faucet_ajquji.mp4", resolved: false, user: james)
 puts "#{Issue.count} issues were created"
 
-jill_comment_pipe = Comment.create!(image_url: "", comment: "looks pretty bad", issue: broken_pipe, user: jill)
+jill_comment_pipe = Comment.create!(image_url: "", comment_text: "looks pretty bad", issue: broken_pipe, user: jill)
 
 puts "#{Comment.count} comments were created"

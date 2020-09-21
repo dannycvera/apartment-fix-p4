@@ -29,6 +29,7 @@ function Home(props) {
             className="home-img"
             key={issue.id}
             src={issue.image_url}
+            alt={issue.title}
             onError={defaultSrc}
           />
         </Link>
