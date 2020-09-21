@@ -25,7 +25,7 @@ function MainContainer(props) {
     };
 
     fetchIssues();
-  }, [currentUser]);
+  }, [currentUser, props.all]);
 
   return (
     <Switch>
