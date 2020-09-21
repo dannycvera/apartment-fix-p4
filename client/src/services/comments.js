@@ -18,18 +18,18 @@ export const getComment = async (commentId) => {
   }
 };
 
-export const createComment = async (issueId) => {
+export const createComment = async (issueId, commentData) => {
   try {
-    const resp = await api.post(`/issues/${issueId}/comments/`);
+    const resp = await api.post(`/issues/${issueId}/comments/`, commentData);
     return resp.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const updateComment = async (commentId) => {
+export const updateComment = async (commentId, commentData) => {
   try {
-    const resp = await api.put(`/comments/${commentId}`);
+    const resp = await api.put(`/comments/${commentId}`, commentData);
     return resp.data;
   } catch (error) {
     throw error;

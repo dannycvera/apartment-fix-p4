@@ -27,18 +27,18 @@ export const getIssue = async (issueId) => {
   }
 };
 
-export const createIssue = async (userId) => {
+export const createIssue = async (userId, issueData) => {
   try {
-    const resp = await api.post(`/users/${userId}/issues`);
+    const resp = await api.post(`/users/${userId}/issues`, issueData);
     return resp.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const updateIssue = async (issueId) => {
+export const updateIssue = async (issueId, issueData) => {
   try {
-    const resp = await api.put(`/issues/${issueId}`);
+    const resp = await api.put(`/issues/${issueId}`, issueData);
     return resp.data;
   } catch (error) {
     throw error;

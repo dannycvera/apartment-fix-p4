@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /issues/:id/comments
   def index
     # @issue = Issue.find(params[:id])
-    @comments = Comment.where(issue_id: params[:id])
+    @comments = Comment.where(issue_id: params[:id]).order(created_at: :desc)
     # @user = User.find(id: @comments.user_id)
 
     # render json: @comments, include: [issue: {include: :user}], status: :ok
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     # @user = User.find(params[:user_id])
     # @issue = Issue.find(params[:issue_id])
     # @comment = Comment.find(params[:id])
-    render json: @comments, include: :user, status: :ok
+    render json: @comment, include: [:user, :issue], status: :ok
   end
   # include: [issue: {include: :user}],
   # POST /issues/:id/comments
@@ -27,10 +27,10 @@ class CommentsController < ApplicationController
     @issue = Issue.find(@comment.issue_id)
     @user = User.find(@comment.user_id)
     if @comment.save
-      render json: @comments, include: [:user, :issue], status: :ok
+      render json: @comment, include: [:user, :issue], status: :ok
       # render json: @comment, include: [issue: {include: :user}], status: :created, location: @comment
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      render json: @comment_single.errors, status: :unprocessable_entity
     end
   end
 
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       @issue = Issue.find(@comment.issue_id)
       @user = User.find(@comment.user_id)
-      render json: @comment, include: [issue: {include: :user}], status: :ok
+      render json: @comment, include: [:user, :issue], status: :ok
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
@@ -58,6 +58,6 @@ class CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.require(:comment).permit(:image_url, :comment, :issue_id, :user_id)
+      params.require(:comment).permit(:image_url, :comment_text, :issue_id, :user_id)
     end
 end

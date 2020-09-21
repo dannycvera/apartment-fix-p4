@@ -4,6 +4,7 @@ import { getAllIssues, getIssues } from "../services/issues";
 import Home from "../screens/Home";
 import Issue from "../screens/Issue";
 import Comments from "../screens/Comments";
+import IssueCreate from "../screens/IssueCreate";
 
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
@@ -28,6 +29,9 @@ function MainContainer(props) {
 
   return (
     <Switch>
+      <Route path="/newissue">
+        <IssueCreate setIssues={setIssues} currentUser={currentUser} />
+      </Route>
       <Route path="/issue/:id">
         <Issue currentUser={currentUser} />
         <Comments currentUser={currentUser} />
