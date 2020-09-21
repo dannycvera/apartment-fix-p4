@@ -40,3 +40,11 @@
   justify-content: space-around;
   width: 100%;
 }
+.issue-file-thumb {
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.issue-create-img {
+  width: 430px;
+}

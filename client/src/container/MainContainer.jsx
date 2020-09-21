@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { getAllIssues, getIssues } from "../services/issues";
 import Home from "../screens/Home";
 import Issue from "../screens/Issue";
@@ -10,7 +10,6 @@ function MainContainer(props) {
   const [issues, setIssues] = useState([]);
   const { currentUser } = props;
   console.log(props.all);
-  const history = useHistory();
 
   useEffect(() => {
     const fetchIssues = async () => {
@@ -20,7 +19,6 @@ function MainContainer(props) {
       } else {
         issuesArray = await getAllIssues();
       }
-      // console.log("issuesarray", issuesArray);
       setIssues(issuesArray);
     };
 

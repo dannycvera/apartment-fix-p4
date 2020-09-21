@@ -9,7 +9,7 @@ function Home(props) {
   };
 
   const issueImages = issues.map((issue) => {
-    if (issue.image_url.slice(-3) === "mp4") {
+    if (issue.image_url && issue.image_url.slice(-3) === "mp4") {
       return (
         <Link to={`/issue/${issue.id}`} key={issue.id}>
           <video
