@@ -9,13 +9,13 @@ import IssueCreate from "../screens/IssueCreate";
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
   const { currentUser } = props;
-
+  console.log(props.all);
   const history = useHistory();
 
   useEffect(() => {
     const fetchIssues = async () => {
       let issuesArray;
-      if (currentUser) {
+      if (currentUser && !props.all) {
         issuesArray = await getIssues(currentUser.id);
       } else {
         issuesArray = await getAllIssues();
@@ -35,6 +35,9 @@ function MainContainer(props) {
       <Route path="/issue/:id">
         <Issue currentUser={currentUser} />
         <Comments currentUser={currentUser} />
+      </Route>
+      <Route exact path="/all">
+        <Home issues={issues} />
       </Route>
       <Route exact path="/">
         <Home issues={issues} />
