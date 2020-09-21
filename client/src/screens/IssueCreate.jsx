@@ -179,19 +179,6 @@ function IssueCreate(props) {
           <button onClick={handleSubmit}>Submit</button>
           <button onClick={handleCancel}>Cancel</button>
         </div>
-        {/* <br />
-        {loadingImg ? (
-          <h3>Loading...</h3>
-        ) : file !== "" ? (
-          <img
-            className="issue-file-thumb"
-            src={file}
-            alt={"The file has uploaded"}
-          ></img>
-        ) : (
-          <></>
-        )}
-        <br /> */}
         <h3>"There is a 10 MB file size limit"</h3>
       </form>
     </div>

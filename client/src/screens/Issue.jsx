@@ -26,6 +26,7 @@ function Issue(props) {
     <div className="issue">
       {issue && (
         <>
+          <h3>{issue.title}</h3>
           {issue.image_url.slice(-3) === "mp4" ? (
             <video className="issue-img" key={id} controls onError={defaultSrc}>
               <source src={issue.image_url} type="video/mp4" />
@@ -40,6 +41,7 @@ function Issue(props) {
             />
           )}
           <div>
+            <p>{issue.location}</p>
             <p>{issue.description}</p>
             <p>
               {!issue.resolved
