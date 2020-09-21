@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comment from "../components/Comment";
+import { uploadImg } from "../services/imageUpload";
 import {
   getComments,
   createComment,
@@ -13,6 +14,11 @@ function Comments(props) {
   const { currentUser } = props;
   // ID of current issue the comments are attached to
   const { id } = useParams();
+  // used for image uploading
+  const [imageDataType, setImageDataType] = useState("");
+  const [imageData, setImageData] = useState("");
+  const [loading, setLoading] = useState(false);
+
   // array of comments
   const [comments, setComments] = useState([]);
   // sets the class of the modal so it is visible
@@ -72,9 +78,19 @@ function Comments(props) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    const tempData = formEdit;
+    if (imageData !== "") {
+      const uploadImage = await uploadImg(imageData);
+      if (uploadImage === "failed upload") {
+        setLoading(false);
+        return;
+      }
+      tempData.image_url = uploadImage;
+    }
+
     if (formType.edit) {
-      console.log("editing");
-      const updated = await updateComment(formType.commentId, formEdit);
+      const updated = await updateComment(formType.commentId, tempData);
       console.log(updated);
       setComments((prevState) =>
         prevState.map((comment) =>
@@ -82,11 +98,12 @@ function Comments(props) {
         )
       );
     } else {
-      console.log("adding");
-
-      const created = await createComment(id, formEdit);
+      const created = await createComment(id, tempData);
       setComments((prevState) => [created, ...prevState]);
     }
+    setLoading(false);
+    setImageData("");
+    setImageDataType("");
     setFormType({ edit: false, commentId: null });
     setModalVis("");
   };
@@ -170,6 +187,25 @@ function Comments(props) {
                 value={formEdit.comment_text}
                 onChange={handleChange}
               ></textarea>{" "}
+            </label>
+            <label htmlFor="file-upload" className="file-button">
+              Choose a file:
+              <input
+                id="file-upload"
+                type="file"
+                name="file"
+                accepts=".mp4,.jpg, .jpeg, .png, .gif"
+                placeholder="upload an image"
+                value={imageData}
+                onChange={(e) => {
+                  const reader = new FileReader();
+                  reader.onload = (e) => {
+                    setImageData(e.target.result);
+                  };
+                  setImageDataType(e.target.files[0].type);
+                  reader.readAsDataURL(e.target.files[0]);
+                }}
+              ></input>
             </label>
             <div className="modal-buttons">
               {formType.edit === true && (

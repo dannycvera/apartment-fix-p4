@@ -7,12 +7,6 @@ export const uploadImg = async (imgData) => {
     data.append("file", imgData);
     data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET);
     const URLCloud = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_SERVER_NAME}/upload`;
-    // if (type === "video/mp4") {
-
-    // } else {
-    //   const URLCloud = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_SERVER_NAME}/image/upload`;
-    // }
-
     const resCloud = await axios.post(URLCloud, data);
     if (resCloud.data.secure_url) {
       return resCloud.data.secure_url;
