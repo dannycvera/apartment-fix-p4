@@ -70,6 +70,9 @@ function App() {
         <Route path="/useredit">
           <UserEdit currentUser={currentUser} userEditSubmit={userEditSubmit} />
         </Route>
+        <Route path="/all">
+          <MainContainer currentUser={currentUser} all={true} />
+        </Route>
         <Route path="/">
           <MainContainer currentUser={currentUser} />
         </Route>
