@@ -24,12 +24,12 @@ class IssuesController < ApplicationController
 
   end
 
-  # POST /issues
+  # POST /users/1/issues
   def create
     @issue = Issue.new(issue_params)
-    @user = User.find(@issue.user_id)
+    @user = User.find(params[:id])
     if @issue.save
-      render json: @issue, include: :user, status: :created, location: @issue
+      render json: @issue, include: :user, status: :created
     else
       render json: @issue.errors, status: :unprocessable_entity
     end

@@ -7,7 +7,7 @@ function Issue(props) {
   console.log("reached issue screen");
   const [issue, setIssue] = useState(null);
   // const { image_url, description, resolved, resolved_notes } = issue;
-  const { currentUser } = props;
+  // const { currentUser } = props;
   const { id } = useParams();
 
   useEffect(() => {

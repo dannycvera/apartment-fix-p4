@@ -15,6 +15,9 @@ function Header(props) {
           <Link to="/newissue">
             <h3>(new issue)</h3>
           </Link>
+          <Link to="/all">
+            <h3>(all issues)</h3>
+          </Link>
         </>
       )}
 

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import "./IssueCreate.css";
-import {
-  // getComments,
-  // updateComment,
-  // deleteComment,
-  createIssue,
-} from "../services/issues";
+import { uploadImg } from "../services/imageUpload";
+import { createIssue } from "../services/issues";
 
 function IssueCreate(props) {
   const { currentUser } = props;
+  const [imageDataType, setImageDataType] = useState("");
+  const [imageData, setImageData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [formEdit, setFormEdit] = useState({
     image_url: "",
     title: "",
@@ -18,12 +18,22 @@ function IssueCreate(props) {
     resolved_notes: "",
     user_id: null,
   });
+  const history = useHistory();
+
+  useEffect(() => {
+    if (currentUser) {
+      setFormEdit((prevState) => ({
+        ...prevState,
+        user_id: currentUser.id,
+      }));
+    }
+  }, [currentUser]);
 
   const handleChange = (e) => {
     const { name } = e.target;
+    // needed to check if the field is a checkbox and sets the value accordingly. Boolean wont work without it
     const value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
-    console.log(value);
     setFormEdit((prevState) => ({
       ...prevState,
       [name]: value,
@@ -32,19 +42,21 @@ function IssueCreate(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const created = await createIssue(currentUser.id, formEdit);
-    // setIssues((prevState) => [created, ...prevState]);
+    setLoading(true);
+    const tempData = formEdit;
+    if (imageData !== null) {
+      const uploadImage = await uploadImg(imageData);
+      if (uploadImage === "failed upload") {
+        setLoading(false);
+        return;
+      }
+      tempData.image_url = uploadImage;
+    }
+    const created = await createIssue(currentUser.id, tempData);
+    setLoading(false);
+    props.setIssues((prevState) => [created, ...prevState]);
+    history.push("/");
   };
-
-  // const handleDelete = async (e) => {
-  //   e.preventDefault();
-  //   await deleteIssue(formType.issueId);
-  //   setComments((prevState) =>
-  //     prevState.filter((comment) => comment.id !== formType.commentId)
-  //   );
-  //   setFormType({ edit: false, commentId: null });
-  //   setModalVis("");
-  // };
 
   const handleCancel = (e) => {
     e.preventDefault();
@@ -65,30 +77,33 @@ function IssueCreate(props) {
 
   return (
     <div className="issue-create">
-      {formEdit.image_url.slice(-3) === "mp4" ? (
-        <video className="issue-create-img" controls onError={defaultSrc}>
-          <source src={props.image} type="video/mp4" />
-        </video>
+      {loading ? (
+        <img
+          className="issue-create-img"
+          src={require("../img/loading.svg")}
+          height="150px"
+          alt="adding another view of the issue"
+          onError={defaultSrc}
+        />
+      ) : imageDataType === "video/mp4" ? (
+        <video
+          className="issue-create-img"
+          controls
+          onError={defaultSrc}
+          src={imageData}
+          type="video/mp4"
+        ></video>
       ) : (
-        formEdit.image_url !== "" && (
+        imageData && (
           <img
             className="issue-create-img"
-            src={formEdit.image_url}
+            src={imageData}
             alt="adding another view of the issue"
             onError={defaultSrc}
           />
         )
       )}
       <form className="issue-create-form">
-        <label>
-          Image URL:
-          <input
-            name="image_url"
-            type="text"
-            value={formEdit.image_url}
-            onChange={handleChange}
-          ></input>
-        </label>
         <label>
           Title:
           <input
@@ -133,13 +148,51 @@ function IssueCreate(props) {
             onChange={handleChange}
           ></input>
         </label>
+        {/* <label>
+          Enter an Image URL:
+          <input
+            name="image_url"
+            type="text"
+            value={formEdit.image_url}
+            onChange={handleChange}
+          ></input>
+        </label> */}
+        <label htmlFor="file-upload" className="file-button">
+          Choose a file:
+          <input
+            id="file-upload"
+            type="file"
+            name="file"
+            accepts=".mp4,.jpg, .jpeg, .png, .gif"
+            placeholder="upload an image"
+            onChange={(e) => {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                setImageData(e.target.result);
+              };
+              setImageDataType(e.target.files[0].type);
+              reader.readAsDataURL(e.target.files[0]);
+            }}
+          ></input>
+        </label>
         <div className="issue-create-buttons">
-          {/* {formType.edit === true && (
-            <button onClick={handleDelete}>Delete</button>
-          )} */}
           <button onClick={handleSubmit}>Submit</button>
           <button onClick={handleCancel}>Cancel</button>
         </div>
+        {/* <br />
+        {loadingImg ? (
+          <h3>Loading...</h3>
+        ) : file !== "" ? (
+          <img
+            className="issue-file-thumb"
+            src={file}
+            alt={"The file has uploaded"}
+          ></img>
+        ) : (
+          <></>
+        )}
+        <br /> */}
+        <h3>"There is a 10 MB file size limit"</h3>
       </form>
     </div>
   );

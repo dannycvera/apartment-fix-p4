@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/users/:id/issues', to: 'issues#index'
   get '/issues', to: 'issues#index_all'
   get '/issues/:id', to: 'issues#show'
-  post '/issues', to: 'issues#create'
+  post '/users/:id/issues', to: 'issues#create'
   put '/issues/:id', to: 'issues#update'
   delete '/issues/:id', to: 'issues#destroy'
 

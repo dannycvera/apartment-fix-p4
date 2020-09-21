@@ -22,7 +22,13 @@ function Comment(props) {
           />
         ))}
       <div>
-        {props.userImg !== "" && <img src={props.userImg} alt={props.name} />}
+        {props.userImg !== "" && (
+          <img
+            className="comment-user-img"
+            src={props.userImg}
+            alt={props.name}
+          />
+        )}
         <p>{`${props.name} wrote:`}</p>
         <p>{props.commentText}</p>
       </div>
