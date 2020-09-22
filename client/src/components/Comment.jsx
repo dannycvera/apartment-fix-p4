@@ -32,7 +32,7 @@ function Comment(props) {
         <p>{`${props.name} wrote:`}</p>
         <p>{props.commentText}</p>
       </div>
-      {currentUser.username === props.name && (
+      {currentUser && currentUser.username === props.name && (
         <button
           onClick={() => {
             props.handleEdit(props.comment);

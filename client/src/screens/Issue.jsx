@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { getIssue } from "../services/issues";
 import "./Issue.css";
 
-function Issue(props) {
-  console.log("reached issue screen");
+function Issue() {
   const [issue, setIssue] = useState(null);
   // const { image_url, description, resolved, resolved_notes } = issue;
   // const { currentUser } = props;
@@ -23,14 +22,20 @@ function Issue(props) {
   };
 
   return (
-    <div className="issue">
+    <div className="issue-parent">
       {issue && (
-        <>
+        <div className="issue">
           <h3>{issue.title}</h3>
+          <p>{issue.user.address}</p>
           {issue.image_url.slice(-3) === "mp4" ? (
-            <video className="issue-img" key={id} controls onError={defaultSrc}>
-              <source src={issue.image_url} type="video/mp4" />
-            </video>
+            <video
+              className="issue-img"
+              key={id}
+              controls
+              src={issue.image_url}
+              type="video/mp4"
+              onError={defaultSrc}
+            ></video>
           ) : (
             <img
               className="issue-img"
@@ -41,6 +46,7 @@ function Issue(props) {
             />
           )}
           <div>
+            <p>{`${issue.user.first_name}'s issue details below:`}</p>
             <p>{issue.location}</p>
             <p>{issue.description}</p>
             <p>
@@ -50,7 +56,7 @@ function Issue(props) {
             ${issue.resolved_notes}`}
             </p>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

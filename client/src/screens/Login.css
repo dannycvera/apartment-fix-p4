@@ -1,0 +1,26 @@
+.user-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-forms > label > input,
+.user-forms > label > textarea {
+  width: 200px;
+  margin: 5px;
+}
+.user-forms > label > textarea {
+  resize: none;
+  height: 40px;
+}
+
+.user-forms > label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  font-size: 17px;
+  margin: 4px;
+}

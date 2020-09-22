@@ -21,15 +21,16 @@
 .issue-create-form input,
 .issue-create-form textarea {
   outline: none;
-  width: 300px;
   border-radius: 5px;
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
+  width: 300px;
 }
 .issue-create-form label {
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: space-between;
   color: black;
   font-size: 17px;
