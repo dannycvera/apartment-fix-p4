@@ -98,9 +98,11 @@
     flex-wrap: nowrap;
     overflow-y: scroll;
     height: 100%;
+    min-width: 350px;
   }
   .comments-add-button {
     height: calc(100vh - 130px);
     align-items: flex-start;
+    min-width: 375px;
   }
 }
