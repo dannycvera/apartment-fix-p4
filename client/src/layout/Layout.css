@@ -2,15 +2,17 @@ button {
   color: white;
   outline: none;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   border: none;
   border-radius: 5px;
-  height: 25px;
-  background-color: #bb3200;
+  height: 30px;
+  background: linear-gradient(to bottom right, rgb(247, 87, 114), #bb3200);
   margin: 4px;
   padding: 0 6px;
   transition: transform 0.1s ease-in-out;
   filter: drop-shadow(0 0 3px gray);
+  font-family: "Comfortaa", cursive;
+  white-space: nowrap;
 }
 
 button:active {
