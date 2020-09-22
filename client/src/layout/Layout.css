@@ -25,9 +25,10 @@ main {
   align-items: center;
   flex-wrap: wrap;
 }
-
+.footer {
+  position: fixed;
+}
 @media screen and(min-width: 850px) {
   main {
-    height: calc(100vh - 130px);
   }
 }

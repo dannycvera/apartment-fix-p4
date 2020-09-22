@@ -101,8 +101,8 @@
     min-width: 350px;
   }
   .comments-add-button {
-    height: calc(100vh - 130px);
+    height: calc(100vh - 135px);
     align-items: flex-start;
-    min-width: 375px;
+    min-width: 350px;
   }
 }
