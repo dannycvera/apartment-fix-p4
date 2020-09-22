@@ -5,7 +5,7 @@ import "./Layout.css";
 
 export default function Layout(props) {
   return (
-    <>
+    <div className="layout">
       <Header
         currentUser={props.currentUser}
         handleLogout={props.handleLogout}
@@ -13,6 +13,6 @@ export default function Layout(props) {
       <main>{props.children}</main>
 
       <Footer></Footer>
-    </>
+    </div>
   );
 }
