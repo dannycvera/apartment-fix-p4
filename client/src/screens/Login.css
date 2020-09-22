@@ -9,6 +9,7 @@
 .user-forms > label > textarea {
   width: 200px;
   margin: 5px;
+  outline: none;
 }
 .user-forms > label > textarea {
   resize: none;

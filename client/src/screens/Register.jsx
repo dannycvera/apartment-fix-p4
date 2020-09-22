@@ -81,12 +81,7 @@ function Register(props) {
       <br />
       <label>
         Address:
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleChange}
-        />
+        <textarea name="address" value={address} onChange={handleChange} />
       </label>
       <br />
       <label>
