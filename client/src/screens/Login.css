@@ -13,7 +13,7 @@
 }
 .user-forms > label > textarea {
   resize: none;
-  height: 40px;
+  height: 50px;
 }
 
 .user-forms > label {
@@ -24,4 +24,8 @@
   color: black;
   font-size: 17px;
   margin: 4px;
+}
+.user-forms-img {
+  filter: drop-shadow(0px 0px 2px gray);
+  width: 375px;
 }
