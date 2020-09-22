@@ -1,0 +1,9 @@
+@media screen and (min-width: 850px) {
+  .MainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 100%;
+    height: calc(100vh - 140px);
+  }
+}

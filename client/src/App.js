@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
+import MainContainer from "./container/MainContainer";
 import Layout from "./layout/Layout";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
@@ -15,7 +16,6 @@ import {
 import "./App.css";
 
 function App() {
-  console.log("app.js");
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
@@ -23,7 +23,6 @@ function App() {
     try {
       const handleVerify = async () => {
         const userData = await verifyUser();
-        console.log(userData);
         setCurrentUser(userData);
         //history.push("/");
       };
@@ -70,9 +69,11 @@ function App() {
         <Route path="/useredit">
           <UserEdit currentUser={currentUser} userEditSubmit={userEditSubmit} />
         </Route>
-
+        <Route path="/all">
+          <MainContainer currentUser={currentUser} all={true} />
+        </Route>
         <Route path="/">
-          {/* <MainContainer currentUser={currentUser} /> */}
+          <MainContainer currentUser={currentUser} />
         </Route>
       </Switch>
     </Layout>

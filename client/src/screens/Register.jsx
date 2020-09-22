@@ -31,6 +31,7 @@ function Register(props) {
   };
   return (
     <form
+      className="user-forms"
       onSubmit={(e) => {
         e.preventDefault();
         props.registerSubmit(formData);
@@ -80,12 +81,7 @@ function Register(props) {
       <br />
       <label>
         Address:
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleChange}
-        />
+        <textarea name="address" value={address} onChange={handleChange} />
       </label>
       <br />
       <label>
@@ -103,6 +99,7 @@ function Register(props) {
         Email:
         <input type="text" name="email" value={email} onChange={handleChange} />
       </label>
+      <br />
       <label>
         Phone:
         <input type="text" name="phone" value={phone} onChange={handleChange} />

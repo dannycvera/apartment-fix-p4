@@ -4,16 +4,17 @@ class IssuesController < ApplicationController
   # GET /users/1/issues
   def index
     @user = User.find(params[:id])
-    @issues = Issue.where(user_id: @user.id)
-
+    @issues = Issue.where(user_id: @user.id).order(created_at: :desc)
     render json: @issues, include: :user, status: :ok
-  end
+  end 
 
-  
+
   # GET /issues
   def index_all
-    @issues = Issue.all
-    render json: @issues, status: :ok
+    @issues = Issue.includes(:user).order(created_at: :desc)
+
+    # @user = User.find(@issues.user_id)
+    render json: @issues, include: :user, status: :ok
   end
 
   # GET /issues/1
@@ -23,11 +24,12 @@ class IssuesController < ApplicationController
 
   end
 
-  # POST /issues
+  # POST /users/1/issues
   def create
     @issue = Issue.new(issue_params)
+    @user = User.find(params[:id])
     if @issue.save
-      render json: @issue, status: :created, location: @issue
+      render json: @issue, include: :user, status: :created
     else
       render json: @issue.errors, status: :unprocessable_entity
     end
@@ -36,7 +38,8 @@ class IssuesController < ApplicationController
   # PATCH/PUT /issues/1
   def update
     if @issue.update(issue_params)
-      render json: @issue
+      @user = User.find(@issue.user_id)
+      render json: @issue, include: :user
     else
       render json: @issue.errors, status: :unprocessable_entity
     end

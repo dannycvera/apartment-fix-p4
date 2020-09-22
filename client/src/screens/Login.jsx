@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 function Login(props) {
   console.log("did I reach login?");
@@ -19,6 +20,7 @@ function Login(props) {
 
   return (
     <form
+      className="user-forms"
       onSubmit={(e) => {
         e.preventDefault();
         props.loginSubmit(formData);
@@ -45,7 +47,9 @@ function Login(props) {
         />
       </label>
       <br />
-      <Link to="/register">Register</Link>
+      <Link to="/register">
+        <h4>Register</h4>
+      </Link>
       <button>Submit</button>
     </form>
   );

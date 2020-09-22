@@ -1,0 +1,35 @@
+.home-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.home-img {
+  width: 365px;
+  margin: 0 5px 20px;
+  filter: drop-shadow(0px 0px 2px gray);
+}
+
+@media screen and (min-width: 500px) {
+  .home-gallery {
+    flex-direction: row;
+    width: 100%;
+  }
+  .home-img {
+    margin: 5px 20px 20px;
+    width: auto;
+    height: 300px;
+  }
+  .home-title {
+    margin: 5px 25px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .home-img {
+    margin: 5px 20px 20px;
+    width: 365px;
+    height: auto;
+  }
+}

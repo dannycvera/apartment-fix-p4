@@ -1,0 +1,33 @@
+button {
+  color: white;
+  outline: none;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  background: linear-gradient(to bottom right, rgb(247, 87, 114), #bb3200);
+  margin: 4px;
+  padding: 0 6px;
+  transition: transform 0.1s ease-in-out;
+  filter: drop-shadow(0 0 3px gray);
+  font-family: "Comfortaa", cursive;
+  white-space: nowrap;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and(min-width: 850px) {
+  main {
+    height: calc(100vh - 130px);
+  }
+}
