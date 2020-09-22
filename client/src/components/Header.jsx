@@ -27,13 +27,15 @@ function Header(props) {
 
         {/* checks if the user is logged in to determine whether which link is displayed */}
         {currentUser ? (
-          <div className="login">
-            <p>{currentUser.username}</p>
-            <button onClick={props.handleLogout}>logout</button>
-            <Link to="/useredit">
-              <button>edit user</button>
-            </Link>
-          </div>
+          <>
+            <div className="login">
+              <p>{currentUser.username}</p>
+              <button onClick={props.handleLogout}>logout</button>
+              <Link to="/useredit">
+                <button>edit user</button>
+              </Link>
+            </div>
+          </>
         ) : (
           <Link to="/login">Login/Register</Link>
         )}
