@@ -38,6 +38,11 @@ function UserEdit(props) {
       [name]: value,
     }));
   };
+
+  const defaultSrc = (e) => {
+    e.target.src = require("../img/noImage.svg");
+  };
+
   return (
     <>
       <form
@@ -49,6 +54,12 @@ function UserEdit(props) {
         }}
       >
         <>
+          <img
+            onError={defaultSrc}
+            className="user-forms-img"
+            alt={username}
+            src={image_url}
+          ></img>
           <h3>Edit User</h3>
           <br />
           <label>
