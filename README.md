@@ -1,5 +1,5 @@
 
-[deployed link](https://apartment-fix.netlify.app/)
+[Deployed Link](https://apartment-fix.netlify.app/)
 
 # APARTMENT FIX 
 
