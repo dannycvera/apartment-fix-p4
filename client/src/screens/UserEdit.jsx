@@ -29,6 +29,7 @@ function UserEdit(props) {
   return (
     <>
       <form
+        className="user-forms"
         onSubmit={(e) => {
           e.preventDefault();
           let id = props.currentUser.id;
@@ -81,8 +82,7 @@ function UserEdit(props) {
             <br />
             <label>
               Address:
-              <input
-                type="text"
+              <textarea
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
@@ -109,6 +109,7 @@ function UserEdit(props) {
                 onChange={handleChange}
               />
             </label>
+            <br />
             <label>
               Phone:
               <input

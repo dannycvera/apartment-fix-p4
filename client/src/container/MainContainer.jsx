@@ -9,7 +9,6 @@ import IssueCreate from "../screens/IssueCreate";
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
   const { currentUser } = props;
-  console.log(props.all);
 
   useEffect(() => {
     const fetchIssues = async () => {
@@ -31,7 +30,7 @@ function MainContainer(props) {
         <IssueCreate setIssues={setIssues} currentUser={currentUser} />
       </Route>
       <Route path="/issue/:id">
-        <Issue currentUser={currentUser} />
+        <Issue />
         <Comments currentUser={currentUser} />
       </Route>
       <Route exact path="/all">

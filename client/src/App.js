@@ -16,7 +16,6 @@ import {
 import "./App.css";
 
 function App() {
-  console.log("app.js");
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 

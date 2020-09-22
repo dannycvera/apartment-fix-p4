@@ -158,7 +158,7 @@ function IssueCreate(props) {
           ></input>
         </label> */}
         <label htmlFor="file-upload" className="file-button">
-          Choose a file:
+          Choose an image or video:
           <input
             id="file-upload"
             type="file"

@@ -9,9 +9,10 @@ function Home(props) {
   };
 
   const issueImages = issues.map((issue) => {
-    if (issue.image_url && issue.image_url.slice(-3) === "mp4") {
-      return (
-        <Link to={`/issue/${issue.id}`} key={issue.id}>
+    return (
+      <Link to={`/issue/${issue.id}`} key={issue.id}>
+        <h3>{issue.title}</h3>
+        {issue.image_url && issue.image_url.slice(-3) === "mp4" ? (
           <video
             className="home-img"
             key={issue.id}
@@ -20,11 +21,7 @@ function Home(props) {
           >
             <source src={issue.image_url} type="video/mp4" />
           </video>
-        </Link>
-      );
-    } else {
-      return (
-        <Link to={`/issue/${issue.id}`} key={issue.id}>
+        ) : (
           <img
             className="home-img"
             key={issue.id}
@@ -32,9 +29,9 @@ function Home(props) {
             alt={issue.title}
             onError={defaultSrc}
           />
-        </Link>
-      );
-    }
+        )}
+      </Link>
+    );
   });
 
   return <div className="home-gallery">{issueImages}</div>;

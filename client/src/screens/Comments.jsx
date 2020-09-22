@@ -36,7 +36,6 @@ function Comments(props) {
   useEffect(() => {
     const fetchComments = async () => {
       const commentsData = await getComments(id);
-      console.log(commentsData);
       setComments(commentsData);
     };
     fetchComments();
@@ -69,6 +68,7 @@ function Comments(props) {
     }
     setModalVis("visible");
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormEdit((prevState) => ({
@@ -76,6 +76,7 @@ function Comments(props) {
       [name]: value,
     }));
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -152,20 +153,24 @@ function Comments(props) {
   // comment cards followed by the modal for editing cards
   return (
     <div className="comments">
-      <button onClick={addComment}>Add Comment</button>
+      {currentUser && <button onClick={addComment}>Add Comment</button>}
       {commentCards}{" "}
       <div className={`modal-parent ${modalVis}`}>
         <div className={`modal ${modalVis}`}>
           {loading === false ? (
-            formEdit.image_url.slice(-3) === "mp4" ? (
-              <video className="modal-img" controls onError={defaultSrc}>
-                <source src={props.image} type="video/mp4" />
-              </video>
+            imageDataType === "video/mp4" ? (
+              <video
+                className="modal-img"
+                controls
+                onError={defaultSrc}
+                src={imageData}
+                type="video/mp4"
+              ></video>
             ) : (
-              formEdit.image_url !== "" && (
+              imageData && (
                 <img
                   className="modal-img"
-                  src={formEdit.image_url}
+                  src={imageData}
                   alt="adding another view of the issue"
                   onError={defaultSrc}
                 />
@@ -180,7 +185,7 @@ function Comments(props) {
             />
           )}
           <form className="modal-form">
-            <label>
+            {/* <label>
               Image URL:
               <input
                 name="image_url"
@@ -188,7 +193,7 @@ function Comments(props) {
                 value={formEdit.image_url}
                 onChange={handleChange}
               ></input>
-            </label>
+            </label> */}
             <label>
               Comment:
               <textarea
@@ -198,7 +203,7 @@ function Comments(props) {
               ></textarea>{" "}
             </label>
             <label htmlFor="file-upload" className="file-button">
-              Choose a file:
+              Choose an image or video:
               <input
                 id="file-upload"
                 type="file"
@@ -211,7 +216,6 @@ function Comments(props) {
                     setImageData(e.target.result);
                   };
                   setImageDataType(e.target.files[0].type);
-
                   reader.readAsDataURL(e.target.files[0]);
                 }}
               ></input>
