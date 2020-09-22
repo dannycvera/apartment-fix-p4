@@ -28,7 +28,6 @@ function Footer() {
           src={require("../img/linkedIn-logo.png")}
         />
       </a>
-      <p>site by Daniel Vera</p>
     </div>
   );
 }

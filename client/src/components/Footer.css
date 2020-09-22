@@ -8,6 +8,8 @@
   bottom: -10px;
   left: 70%; */
   /* border: solid thin black; */
+  position: fixed;
+  bottom: 5px;
 }
 
 .github-icon {
@@ -18,5 +20,12 @@
   margin: 0px 10px 4px 2px;
   /* border: solid thin black; */
 }
+
+.footer {
+  position: fixed;
+}
 @media screen and(min-width: 850px) {
+  .social-bar {
+    position: fixed;
+  }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 function Home(props) {
-  const { issues } = props;
+  const { issues, loading } = props;
 
   const defaultSrc = (e) => {
     e.target.src = require("../img/noImage.svg");
@@ -34,7 +34,15 @@ function Home(props) {
     );
   });
 
-  return <div className="home-gallery">{issueImages}</div>;
+  return (
+    <div className="home-gallery">
+      {loading ? (
+        <img src={require("../img/loading.svg")} alt="loading"></img>
+      ) : (
+        issueImages
+      )}
+    </div>
+  );
 }
 
 export default Home;
