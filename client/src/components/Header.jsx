@@ -31,7 +31,7 @@ function Header(props) {
             <p>{currentUser.username}</p>
             <button onClick={props.handleLogout}>logout</button>
             <Link to="/useredit">
-              <button>edit</button>
+              <button>edit user</button>
             </Link>
           </div>
         ) : (

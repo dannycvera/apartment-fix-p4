@@ -10,6 +10,14 @@ body,
   padding: 0;
 }
 
+@media screen and (min-width: 850px) {
+  html,
+  body,
+  #root {
+    height: 100vh;
+  }
+}
+
 /* .App {
   text-align: center;
 }
