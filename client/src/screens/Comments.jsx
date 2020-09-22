@@ -152,40 +152,41 @@ function Comments(props) {
 
   // comment cards followed by the modal for editing cards
   return (
-    <div className="comments">
+    <div className="comments-add-button">
       {currentUser && <button onClick={addComment}>Add Comment</button>}
-      {commentCards}{" "}
-      <div className={`modal-parent ${modalVis}`}>
-        <div className={`modal ${modalVis}`}>
-          {loading === false ? (
-            imageDataType === "video/mp4" ? (
-              <video
-                className="modal-img"
-                controls
-                onError={defaultSrc}
-                src={imageData}
-                type="video/mp4"
-              ></video>
-            ) : (
-              imageData && (
-                <img
+      <div className="comments">
+        {commentCards}{" "}
+        <div className={`modal-parent ${modalVis}`}>
+          <div className={`modal ${modalVis}`}>
+            {loading === false ? (
+              imageDataType === "video/mp4" ? (
+                <video
                   className="modal-img"
-                  src={imageData}
-                  alt="adding another view of the issue"
+                  controls
                   onError={defaultSrc}
-                />
+                  src={imageData}
+                  type="video/mp4"
+                ></video>
+              ) : (
+                imageData && (
+                  <img
+                    className="modal-img"
+                    src={imageData}
+                    alt="adding another view of the issue"
+                    onError={defaultSrc}
+                  />
+                )
               )
-            )
-          ) : (
-            <img
-              className="modal-img"
-              src={require("../img/loading.svg")}
-              alt="adding another view of the issue"
-              onError={defaultSrc}
-            />
-          )}
-          <form className="modal-form">
-            {/* <label>
+            ) : (
+              <img
+                className="modal-img"
+                src={require("../img/loading.svg")}
+                alt="adding another view of the issue"
+                onError={defaultSrc}
+              />
+            )}
+            <form className="modal-form">
+              {/* <label>
               Image URL:
               <input
                 name="image_url"
@@ -194,40 +195,41 @@ function Comments(props) {
                 onChange={handleChange}
               ></input>
             </label> */}
-            <label>
-              Comment:
-              <textarea
-                name="comment_text"
-                value={formEdit.comment_text}
-                onChange={handleChange}
-              ></textarea>{" "}
-            </label>
-            <label htmlFor="file-upload" className="file-button">
-              Choose an image or video:
-              <input
-                id="file-upload"
-                type="file"
-                name="file"
-                accepts=".mp4,.jpg, .jpeg, .png, .gif"
-                placeholder="upload an image"
-                onChange={(e) => {
-                  const reader = new FileReader();
-                  reader.onload = (e) => {
-                    setImageData(e.target.result);
-                  };
-                  setImageDataType(e.target.files[0].type);
-                  reader.readAsDataURL(e.target.files[0]);
-                }}
-              ></input>
-            </label>
-            <div className="modal-buttons">
-              {formType.edit === true && (
-                <button onClick={handleDelete}>Delete</button>
-              )}
-              <button onClick={handleSubmit}>Submit</button>
-              <button onClick={handleCancel}>Cancel</button>
-            </div>
-          </form>
+              <label>
+                Comment:
+                <textarea
+                  name="comment_text"
+                  value={formEdit.comment_text}
+                  onChange={handleChange}
+                ></textarea>{" "}
+              </label>
+              <label htmlFor="file-upload" className="file-button">
+                Choose an image or video:
+                <input
+                  id="file-upload"
+                  type="file"
+                  name="file"
+                  accepts=".mp4,.jpg, .jpeg, .png, .gif"
+                  placeholder="upload an image"
+                  onChange={(e) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                      setImageData(e.target.result);
+                    };
+                    setImageDataType(e.target.files[0].type);
+                    reader.readAsDataURL(e.target.files[0]);
+                  }}
+                ></input>
+              </label>
+              <div className="modal-buttons">
+                {formType.edit === true && (
+                  <button onClick={handleDelete}>Delete</button>
+                )}
+                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleCancel}>Cancel</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

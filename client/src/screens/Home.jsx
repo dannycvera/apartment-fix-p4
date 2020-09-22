@@ -11,7 +11,7 @@ function Home(props) {
   const issueImages = issues.map((issue) => {
     return (
       <Link to={`/issue/${issue.id}`} key={issue.id}>
-        <h3>{issue.title}</h3>
+        <h3 className="home-title">{issue.title}</h3>
         {issue.image_url && issue.image_url.slice(-3) === "mp4" ? (
           <video
             className="home-img"

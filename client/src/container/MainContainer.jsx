@@ -5,6 +5,7 @@ import Home from "../screens/Home";
 import Issue from "../screens/Issue";
 import Comments from "../screens/Comments";
 import IssueCreate from "../screens/IssueCreate";
+import "./MainContainer.css";
 
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
@@ -30,8 +31,10 @@ function MainContainer(props) {
         <IssueCreate setIssues={setIssues} currentUser={currentUser} />
       </Route>
       <Route path="/issue/:id">
-        <Issue />
-        <Comments currentUser={currentUser} />
+        <div className="MainContainer">
+          <Issue />
+          <Comments currentUser={currentUser} />
+        </div>
       </Route>
       <Route exact path="/all">
         <Home issues={issues} />
