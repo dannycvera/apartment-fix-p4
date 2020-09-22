@@ -17,10 +17,10 @@ function Header(props) {
         {currentUser && (
           <div className="links">
             <Link to="/newissue">
-              <h5>(new issue)</h5>
+              <h4>(new issue)</h4>
             </Link>
             <Link to="/all">
-              <h5>(all issues)</h5>
+              <h4>(all issues)</h4>
             </Link>
           </div>
         )}
