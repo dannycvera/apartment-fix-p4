@@ -10,9 +10,11 @@ import "./MainContainer.css";
 function MainContainer(props) {
   const [issues, setIssues] = useState([]);
   const { currentUser } = props;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchIssues = async () => {
+      setLoading(true);
       let issuesArray;
       if (currentUser && !props.all) {
         issuesArray = await getIssues(currentUser.id);
@@ -20,6 +22,7 @@ function MainContainer(props) {
         issuesArray = await getAllIssues();
       }
       setIssues(issuesArray);
+      setLoading(false);
     };
 
     fetchIssues();
@@ -37,10 +40,10 @@ function MainContainer(props) {
         </div>
       </Route>
       <Route exact path="/all">
-        <Home issues={issues} />
+        <Home loading={loading} issues={issues} />
       </Route>
       <Route exact path="/">
-        <Home issues={issues} />
+        <Home loading={loading} issues={issues} />
       </Route>
     </Switch>
   );
