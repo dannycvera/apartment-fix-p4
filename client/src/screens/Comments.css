@@ -5,6 +5,14 @@
   flex-wrap: wrap;
 }
 
+.comments-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 45px;
+}
+
 .modal {
   display: flex;
   flex: wrap;
@@ -83,28 +91,17 @@
   visibility: visible;
   opacity: 1;
 }
-.comments-add-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 45px;
-}
 
 @media screen and (min-width: 850px) {
   .comments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     flex-wrap: nowrap;
     overflow-y: scroll;
-    height: 100%;
-    min-width: 350px;
+    height: calc(100vh - 182px);
   }
-  .comments-add-button {
-    height: calc(100vh - 135px);
+
+  .comments-parent {
     align-items: flex-start;
-    min-width: 350px;
-    margin-bottom: 0;
+    /* min-width: 380px; */
+    margin-bottom: 5px;
   }
 }

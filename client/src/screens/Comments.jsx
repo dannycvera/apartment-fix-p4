@@ -152,7 +152,7 @@ function Comments(props) {
 
   // comment cards followed by the modal for editing cards
   return (
-    <div className="comments-add-button">
+    <div className="comments-parent">
       {currentUser && <button onClick={addComment}>Add Comment</button>}
       <div className="comments">
         {commentCards}{" "}
@@ -185,7 +185,7 @@ function Comments(props) {
                 onError={defaultSrc}
               />
             )}
-            <form className="modal-form">
+            <form className="modal-form" onSubmit={handleSubmit}>
               {/* <label>
               Image URL:
               <input
@@ -225,10 +225,10 @@ function Comments(props) {
                 {formType.edit === true && (
                   <button onClick={handleDelete}>Delete</button>
                 )}
-                <button onClick={handleSubmit}>Submit</button>
-                <button onClick={handleCancel}>Cancel</button>
+                <button>Submit</button>
               </div>
             </form>
+            <button onClick={handleCancel}>Cancel</button>
           </div>
         </div>
       </div>
