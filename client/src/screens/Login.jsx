@@ -19,39 +19,42 @@ function Login(props) {
   };
 
   return (
-    <form
-      className="user-forms"
-      onSubmit={(e) => {
-        e.preventDefault();
-        props.loginSubmit(formData);
-      }}
-    >
-      <h3>Login</h3>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
+    <>
+      <form
+        className="user-forms"
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.loginSubmit(formData);
+        }}
+      >
+        <h3>Login</h3>
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+
+        <button>Submit</button>
+      </form>
       <Link to="/register">
-        <h4>Register</h4>
+        <button>Register</button>
       </Link>
-      <button>Submit</button>
-    </form>
+    </>
   );
 }
 
