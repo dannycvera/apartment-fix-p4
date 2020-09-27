@@ -5,7 +5,7 @@ button {
   font-size: 15px;
   border: none;
   border-radius: 5px;
-  height: 30px;
+  height: 28px;
   background: linear-gradient(to bottom right, rgb(247, 87, 114), #bb3200);
   margin: 4px;
   padding: 0 6px;
@@ -27,9 +27,6 @@ main {
 }
 
 .layout {
-  min-height: 100vh;
-}
-@media screen and(min-width: 850px) {
-  main {
-  }
+  margin: 0;
+  padding: 0;
 }
