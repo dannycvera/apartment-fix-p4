@@ -202,3 +202,4 @@ export const uploadImg = async (imgData) => {
 ## Code Issues & Resolutions
 
 > Use this section to list of all major issues encountered and their resolution.
+> Current Heroku backend is being upgraded and may not function correctly
