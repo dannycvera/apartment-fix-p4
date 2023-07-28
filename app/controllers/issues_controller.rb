@@ -4,14 +4,14 @@ class IssuesController < ApplicationController
   # GET /users/1/issues
   def index
     @user = User.find(params[:id])
-    @issues = Issue.where(user_id: @user.id).order(created_at: :desc)
+    @issues = Issue.where(user_id: @user.id).order(created_at: :asc)
     render json: @issues, include: :user, status: :ok
   end 
 
 
   # GET /issues
   def index_all
-    @issues = Issue.includes(:user).order(created_at: :desc)
+    @issues = Issue.includes(:user).order(created_at: :asc)
 
     # @user = User.find(@issues.user_id)
     render json: @issues, include: :user, status: :ok
