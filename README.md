@@ -173,8 +173,32 @@ src
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+Built a service to handle file uploading to Cloudinary.
+After creating an account and entering the Preset and Server Name into your .env file.
+All you have to do is pass the imagedata/file/URL to the "uploadImg" service, 
+then a URL of the image location on Cloudinary is returned.
 
+```
+import axios from "axios";
+
+export const uploadImg = async (imgData) => {
+  try {
+    const data = new FormData();
+
+    data.append("file", imgData);
+    data.append("upload_preset", process.env.REACT_APP_CLOUDINARY_PRESET);
+    const URLCloud = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_SERVER_NAME}/upload`;
+    const resCloud = await axios.post(URLCloud, data);
+    if (resCloud.data.secure_url) {
+      return resCloud.data.secure_url;
+    } else {
+      return "failed upload";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
 ## Code Issues & Resolutions
 
 > Use this section to list of all major issues encountered and their resolution.
