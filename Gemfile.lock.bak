@@ -96,6 +96,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.4)
     minitest (5.19.0)
     msgpack (1.7.2)
     net-imap (0.3.7)
@@ -109,7 +110,8 @@ GEM
       net-protocol
     newrelic_rpm (9.3.1)
     nio4r (2.5.9)
-    nokogiri (1.15.3-x86_64-darwin)
+    nokogiri (1.15.3)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     pg (1.5.3)
     pry (0.14.2)
@@ -171,7 +173,7 @@ GEM
     zeitwerk (2.6.9)
 
 PLATFORMS
-  x86_64-darwin-22
+  ruby
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
