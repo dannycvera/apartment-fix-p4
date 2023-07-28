@@ -21,7 +21,7 @@ function MainContainer(props) {
       } else {
         issuesArray = await getAllIssues();
       }
-      setIssues(issuesArray);
+      setIssues(issuesArray.reverse());
       setLoading(false);
     };
 

@@ -12,7 +12,7 @@ function Header(props) {
            Fix`}
         </h1>
       </Link>
-      <div className="nav">
+      <nav className="nav">
         {/* only shows the newissue link if a user is logged in */}
         {currentUser && (
           <div className="links">
@@ -39,7 +39,7 @@ function Header(props) {
         ) : (
           <Link to="/login">Login/Register</Link>
         )}
-      </div>
+      </nav>
     </header>
   );
 }
